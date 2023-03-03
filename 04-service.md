@@ -45,6 +45,7 @@ Per evitare questo:
 ![Cluster IP](/images/services_02.png)
 
 Faccio questo, usando un Cluster IP Service:
+
 ![Cluster IP](/images/services_03.png)
 
 Ogni servizio Cluster IP avra' un nome e un IP, che verra' usato dai pod per comunicare.
@@ -74,7 +75,7 @@ Load Balancer
 -------------
 
 E' utilizzabile SOLO su piattaforme Cloud compatibili, perche' vado a usare il loro Load Balancer nativo.  
-Se creo un'applicazione con pod su diversi nodi, e uso `Nodeport`, finisco per avere un punto di ingresso per ogni nodo.
+Se creo un'applicazione con pod su diversi nodi, e uso `Nodeport`, finisco per avere un punto di ingresso per ogni nodo.  
 
 ![Load Balancer](/images/services_04.png)
 
