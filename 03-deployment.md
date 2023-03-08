@@ -15,6 +15,11 @@ Esempio creazione file template:
 kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o yaml > nginx-deployment.yaml
 ```
 
+Esempio scaling numero di pod:
+```
+kubectl scale deployment nginx --replicas=4
+```
+
 Esempio configurazione base yaml:
 ```
 apiVersion: apps/v1

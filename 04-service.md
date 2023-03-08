@@ -95,3 +95,17 @@ spec:
   - targetPort: 80
     port: 80
     nodePort: 30008
+```
+
+Comandi freschi
+---------------
+
+Crea Service chiamato `redis-service` di tipo `ClusterIP` per esporre un pod redis sulla porta 6379:
+```
+kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
+```
+
+Crea un service chiamato `nginx` di tipo `NodePort` per esporre la porta 80 di un pod nginx sulla porta 30080 del nodo:
+```
+kubectl expose pod nginx --type=NodePort --port=80 --name=nginx-service --dry-run=client -o yaml
+```
