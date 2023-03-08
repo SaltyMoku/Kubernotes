@@ -1,4 +1,9 @@
-Creare uno yaml template
+Creare un pod/deployment/ecc (imperative):
+```
+kubectl create deployment --image=nginx nginx
+```
+
+Creare uno yaml template:
 ```
 kubectl run nginx --image=nginx --dry-run=client -o yaml
 kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o yaml > nginx-deployment.yaml 
