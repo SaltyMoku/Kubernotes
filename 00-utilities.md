@@ -18,3 +18,8 @@ Contare numero di pod
 ```
 kubectl get pods --no-headers | wc -l
 ```
+
+Sostituire un pod con uno nuovo creato da file:
+```
+kubectl replace --force -f pod.yaml
+```
