@@ -5,7 +5,7 @@ Non si puo' creare un Pod Multicontainer con Run.
 Bisogna creare il file .yaml e runnarlo (quindi dry-run, e modifichi il file aggiungento i container in piu').
 
 `Multicontainer.yaml`:
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -27,7 +27,7 @@ Sidecar e' gia' configurato per inviare log in questo caso.
 Il Pod ha due container, ed entrambi sharano il volume `log-volume`.
 - app: lo monta in `/log`
 - sidecar: lo monta in `/var/log/event-simulator/`
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -63,7 +63,7 @@ Se ho bisogno di un Container usa e getta di supporto, che runna una volta e poi
 Gli InitContainer runnano una volta prima dell'esecuzione degli altri container.
 
 `InitContainer.yaml`:
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -85,7 +85,7 @@ spec:
 ```
 
 initContainer che fa sleep 20 secondi prima di partire:
-```
+```yaml
 ...
 spec:
   initContainers:

@@ -15,7 +15,7 @@ Puo' avere diversi comportamenti:
 - `PreferNoSchedule`: non schedula Pod sul Nodo, a meno che' non sia necessario
 - `NoExecute`: non schedula Pod sul Nodo, e uccide tutti i Pod attualmente sul nodo che non tollerano il Taint
 
-```
+```bash
 kubectl taint nodes node-name key=value:taint-effect
 kubectl taint nodes node 1 app=blue:NoSchedule
 ```
@@ -28,7 +28,7 @@ Di default i Pod non hanno alcuna Toleration.
 I valori nello yaml devono essere identici a quelli del taint.
 
 Es. se sul nodo lanciamo `kubectl taint nodes node 1 app=blue:NoSchedule`, il Pod deve avere:
-```
+```yaml
 ...
 specs:
   tolerations:

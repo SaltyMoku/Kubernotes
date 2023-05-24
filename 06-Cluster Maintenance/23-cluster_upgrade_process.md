@@ -82,18 +82,18 @@ systemctl restart kubelet
 #### Worker Nodes
 
 Faccio drain del nodo:
-```
+```bash
 kubectl drain node-1
 ```
 
 Eseguo upgrade kubeadm:
-```
+```bash
 apt-get update
 apt-get install kubeadm=1.12.0-00
 ```
 
 Lancio upgrade del nodo e kubelet, restart il servizio, e lo rendo nuovamente disponibile:
-```
+```bash
 kubeadm upgrade node
 apt-get install kubelet=1.12.0-00
 systemctl daemon-reload

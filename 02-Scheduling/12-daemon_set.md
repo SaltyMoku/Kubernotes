@@ -6,7 +6,7 @@ Ottimo per Monitoring e Logging.
 E' utilizzato per deployare `Kube-Proxy` o gestione Network in alcuni casi.  
 
 Il definition file e' molto simile al `Replica Set`:
-```
+```yaml
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
@@ -29,6 +29,6 @@ Notes
 -----
 
 Per sapere su quali nodi gira un Daemonset (es. `kube-proxy`):
-```
+```bash
 kubectl describe daemonset kube-proxy --namespace=kube-system
 ```

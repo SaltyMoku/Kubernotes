@@ -13,14 +13,14 @@ Secrets via Env
 ---------------
 
 Crearli manualmente/da file:
-```
+```bash
 kubectl create secret generic NOMESECRET --from-literal=CHIAVE=VALORE --from-literal=CHIAVE2=VALORE2
 kubectl create secret generic NOMESECRET --from-file=FILEPATH
 ```
 
 Oppure con `kubectl create -f`.
 In questo caso pero' i secrets devono essere salvati gia' encodati (es. usando `echo -n "paswrd" | bae64`):
-```
+```yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -32,7 +32,7 @@ data:
 ```
 
 Una volta creati, i Secret vanno inseriti nella config del Pod:
-```
+```yaml
 ...
 spec:
   containers:
@@ -46,13 +46,15 @@ spec:
 Secrets via Single Env
 ----------------------
 Direttamente nel Pod:
-```
+```yaml
+...
 env:
 - name: DB_Password
   valueFrom:
     secretKeyRef:
       name: app-secret
       key: DB_Password
+...
 ```
 
 Secrets via Volume
@@ -61,7 +63,7 @@ Secrets via Volume
 Secret passato come File da un volume.  
 In questo caso ogni Secret consiste in un file nel container per ciascun Secret.
 Il file conterra' l'effettivo secret (visibile es. con `cat`)
-```
+```yaml
 volumes:
 - name: app-secret-volume
   secret:

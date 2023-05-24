@@ -3,7 +3,7 @@ Encrypt Secrets
 
 I segreti sono encodati in base64, ma non criptati.  
 Chiunque potrebbe andare in /etc/kubernetes/pki/etcd/ e vedere i secret lanciando (necessario `apt-get install etcd-client` se etcdctl non e' presente):  
-```
+```bash
 ETCDCTL_API=3 etcdctl \
    --cacert=/etc/kubernetes/pki/etcd/ca.crt   \
    --cert=/etc/kubernetes/pki/etcd/server.crt \
@@ -12,11 +12,11 @@ ETCDCTL_API=3 etcdctl \
 ```
 Per evitarlo configuriamo Encryption at Rest.  
 Per verificare se l'encryption e' gia' attiva:
-```
+```bash
 ps -aux | grep kube-api | grep "encryption-provider-config"
 ```
 OPPURE
-```
+```bash
 cat /etc/kubernetes/manifests/kube-apiserver.yaml | grep -i "encrypt"
 ```
 
@@ -24,11 +24,11 @@ Passaggi (ad alto livello):
 ---------------------------
 
 1. Generare una chiave random di 32-byte e encodarla in base64:
-```
+```bash
 head -c 32 /dev/urandom | base64
 ```
 2. Creare EncryptionConfiguration.yaml inserendo la Key:
-```
+```yaml
 apiVersion: apiserver.config.k8s.io/v1
 kind: EncryptionConfiguration
 resources:
@@ -45,7 +45,7 @@ resources:
 ```
 3. Spostare il file .yaml in `/etc/kubernetes/enc` (path cambiabile).
 4. Aggiungere i riferimenti e i volumi nel Pod di kube-api:
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:

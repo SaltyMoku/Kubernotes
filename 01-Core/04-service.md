@@ -19,7 +19,7 @@ Accedendo a http://nodo:30008/ posso vedere l'applicazione.
 ![Nodeport](/images/services_01.png)
 
 Esempio configurazione che espone i/il pod con label `app: myapp` e `type: front-end`:
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -51,12 +51,12 @@ Faccio questo, usando un Cluster IP Service:
 Ogni servizio Cluster IP avra' un nome e un IP, che verra' usato dai pod per comunicare.
 
 E' possibile recuperare nome e IP usando:
-```
+```bash
 kubectl get services
 ```
 
 Esempio definition file:
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -84,7 +84,7 @@ Io voglio avere un solo punto di ingresso. Vado quindi a creare un `Load Balance
 ![Load Balancer](/images/services_05.png)
 
 Esempio definition file:
-```
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
@@ -101,11 +101,11 @@ Comandi freschi
 ---------------
 
 Crea Service chiamato `redis-service` di tipo `ClusterIP` per esporre un pod redis sulla porta 6379:
-```
+```bash
 kubectl expose pod redis --port=6379 --name redis-service --dry-run=client -o yaml
 ```
 
 Crea un service chiamato `nginx` di tipo `NodePort` per esporre la porta 80 di un pod nginx sulla porta 30080 del nodo:
-```
+```bash
 kubectl expose pod nginx --type=NodePort --port=80 --name=nginx-service --dry-run=client -o yaml
 ```

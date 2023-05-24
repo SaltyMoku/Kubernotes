@@ -6,7 +6,7 @@ Labels
 
 Una Label aggiunge delle etichette a un oggetto.  
 Si specificano nell yaml in `metadata`:
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -25,14 +25,14 @@ Selector filtra in base alle etichette.
 Sono utilizzati sia per fare ricerche manuali, che internamente a Kubernetes.
 
 Es. ricerca manuale
-```
+```bash
 kubectl get pods --selector app=App1
 kubectl get all --selector env=prod --no-headers | wc -l
 kubectl get all --selector env=prod,bu=finance,tier=frontend
 ```
 
 es. utilizzo di Kube - i Replicas e i Pod sotto di essi hanno le stesse labels.
-```
+```yaml
 apiVersion: apps/v1
 kind: ReplicaSet
 metadata:
@@ -55,7 +55,7 @@ Annotations
 -----------
 
 Le Annotations sono delle note opzionali inseribili in Metadata in cui prendere appunti:
-```
+```yaml
 ...
 metadata:
   annotations:

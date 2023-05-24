@@ -4,7 +4,7 @@ Commands
 Non molto da dire, sono i comandi lanciati all'esecuzione del Pod.
 Possono essere specificati in modi diversi, ma fanno la stessa cosa:
 
-```
+```yaml
 apiVersion: v1
 kind: Pod 
 metadata:
@@ -17,7 +17,7 @@ spec:
     - sleep
     - "5000"
 ```
-```
+```yaml
 apiVersion: v1
 kind: Pod 
 metadata:
@@ -28,7 +28,7 @@ spec:
     image: ubuntu
     command: ["sleep","5000"]
 ```
-```
+```yaml
 apiVersion: v1
 kind: Pod 
 metadata:

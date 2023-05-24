@@ -3,7 +3,7 @@ Resource & Limits
 
 Lo Scheduler assegna i Pod anche a seconda delle risorse che richiede.  
 Le risorse e i limiti di default sono definiti per ogni namespace in un oggetto `LimitRange`:
-```
+```yaml
 apiVersion: v1
 kind: LimitRange
 metadata:
@@ -16,7 +16,7 @@ spec:
         memory: 256Mi
     type: Container
 ```  
-```
+```yaml
 apiVersion: v1
 kind: LimitRange
 metadata:
@@ -39,7 +39,7 @@ I requisiti di default di un container sono:
 - Disk
 
 Se il Pod ha bisogno di maggiori risorse, e' possibile indicarlo in `resources` nel pod-definition file (non e' possibile modificare un Pod running):
-```
+```yaml
 spec:
   containers:
   - name: simple-webapp-color
@@ -60,7 +60,7 @@ I limiti di default di un container (per ciascun container nel pod) sono:
 
 Per modificarli si aggiunte `limits` sotto `resources`:
 
-```
+```yaml
 spec:
   containers:
   - name: simple-webapp-color

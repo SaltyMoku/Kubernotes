@@ -2,7 +2,7 @@ Environment Variables
 =====================
 
 Le variabili d'ambiente possono essere configurate nel Pod:
-```
+```yaml
   spec:
     containers:
     - env:
@@ -10,13 +10,13 @@ Le variabili d'ambiente possono essere configurate nel Pod:
         value: pink
 ```
 Per una migliore gestione e' possibile configurare delle ConfigMap da cui prendere le variabili:
-```
+```bash
 kubectl get configmaps
 kubectl create configmap webapp-config-map --from-literal=APP_COLOR=darkblue --from-literal=APP_OTHER=disregard
 ```
 
 Per recuperare le variabili dalla ConfigMap, modificare il Pod:
-```
+```yaml
 spec:
   containers:
   - env:
@@ -29,7 +29,7 @@ spec:
 ```
 
 E' possibile anche prendere la configMap da un Volume [ESEMPI NON PRESENTI - DA TESTARE]:
-```
+```yaml
 volumes:
 - name: app-config-volume
   configMap:
@@ -41,7 +41,7 @@ Note
 ----
 
 Yaml delle ConfigMap:
-```
+```yaml
 apiVersion: v1
 kind: ConfigMap
 metadata:

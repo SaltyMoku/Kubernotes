@@ -6,7 +6,7 @@ Imperative
 I comandi imperative sono quelli lanciati brutalmente con kubectl senza applicare file.
 Rimane traccia solo nella sessione dell'utente che li ha lanciati. Sono stonks per fare prove/andare yolo, ma non adatti a un ambiente enterprise.  
 I principali comandi sono:
-```
+```bash
 kubectl run --image=nginx nginx
 kubectl create deployment --image=nginx nginx
 kubectl expose deployment nginx --port 80
@@ -19,7 +19,7 @@ kubectl delete -f nginx.yaml
 ```
 
 I comandi imperative usati nel lab sono:
-```
+```bash
 kubectl run --image nginx:alpine nginx-pod
 kubectl run --image redis:alpine redis --labels tier=db
 kubectl expose pod redis --port 6379 --name redis-service
@@ -38,6 +38,6 @@ Declarative
 -----------
 
 Approccio piu' gentile che usa i file. In casi in cui ci fossero errori/il pod esistesse gia', e' intelligente e non restituisce errori:
-```
+```bash
 kubectl apply -f nginx.yaml
 ```

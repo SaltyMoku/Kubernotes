@@ -6,22 +6,22 @@ Un deployment contiene e gestisce almeno un replicaset.
 Se creo un deployment creo automaticamente un replicaset.
 
 Esempio creazione deployment:
-```
+```bash
 kubectl create deployment --image=httpd:2.4-alpine httpd-frontend --replicas 3
 ```
 
 Esempio creazione file template:
-```
+```bash
 kubectl create deployment --image=nginx nginx --replicas=4 --dry-run=client -o yaml > nginx-deployment.yaml
 ```
 
 Esempio scaling numero di pod:
-```
+```bash
 kubectl scale deployment nginx --replicas=4
 ```
 
 Esempio configurazione base yaml:
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:

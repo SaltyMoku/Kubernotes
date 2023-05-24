@@ -16,7 +16,7 @@ Questa operazione viene effettuata fino a quando i Pod del vecchio sono a 0.
 Commands
 --------
 
-```
+```bash
 kubectl create -f deployment-definition.yml
 kubectl get deployments
 kubectl apply -d deployment-definition.yml

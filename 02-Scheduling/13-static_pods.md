@@ -18,7 +18,7 @@ Note
 - Non e' possibile gestire Replicaset o Daemonset, ma solamente Pod.
 - Non e' possibile usare `kubectl` non avendo Kube API, quindi bisogna usare `docker`
 - Static Pod e Pod classici possono coesistere, e il Kube API server vede gli static Pod (ma sono simili a dei link, e quindi NON modificabili da kubectl)
-```
+```bash
 kubectl run static-busybox --dry-run=client --image busybox -o yaml --command -- sleep 1000 > /etc/kubernetes/manifests/temp.yaml
 
 kubectl run --restart=Never --image=busybox static-busybox --dry-run=client -o yaml --command -- sleep 1000 > /etc/kubernetes/manifests/static-busybox.yaml

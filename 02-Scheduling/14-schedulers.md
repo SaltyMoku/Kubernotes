@@ -8,7 +8,7 @@ Molteplici scheduler possono runnare allo stesso momento.
 E' possibile quindi creare scheduler con regole personalizzate.  
 
 Inserendo `schedulerName` nel .yaml di un Pod e' possibile scegliere quale Scheduler usare:
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -49,7 +49,7 @@ Esempio Custom Scheduler
 Questo scheduler ha piu' profili.
 In ciascun profilo sono stati disabilitati alcuni plugin, e abilitati plugin custom.
 
-```
+```yaml
 apiVersion: kubescheduler.config.k8s.io/v1
 kind: KubeSchedulerConfiguration
 profiles:

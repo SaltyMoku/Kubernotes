@@ -8,12 +8,12 @@ Node Selectors
 
 Molto facile, ma poco versatile (non puoi usare OR o NOT).  
 Assegni una Label a un nodo:
-```
+```bash
 kubectl label nodes <node-name> <label-key>=<label-value>
 kubectl label nodes node-1 size=Large
 ```
 Dici al Pod di usare nodi con quella label:
-```
+```yaml
 ...
 spec:
   nodeSelector:
@@ -26,7 +26,7 @@ Node Affinity
 
 Piu' complesso, ma piu' versatile.
 Per fare la stessa regola dell'esempio di prima, bisogna dire al Pod:
-```
+```yaml
 ...
 spec:
   affinity:
@@ -41,11 +41,10 @@ spec:
 ...
 ```
 I tipi di NodeAffinity sono:
-```
-requiredDuringSchedulingIgnoredDuringExecution
-preferredDuringSchedulingIgnoredDuringExecution
-requiredDuringSchedulingRequiredDuringExecution #al momento Planned e non utilizzabile
-```
+
+- `requiredDuringSchedulingIgnoredDuringExecution`
+- `preferredDuringSchedulingIgnoredDuringExecution`
+- `requiredDuringSchedulingRequiredDuringExecution`: al momento Planned e non utilizzabile
 
 Combo Affinity & Taints
 -----------------------

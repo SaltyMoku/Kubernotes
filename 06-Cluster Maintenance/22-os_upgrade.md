@@ -19,21 +19,21 @@ Per evitare questi disservizi:
 
 Per fare cio':
 1. Lanciamo una Drain sul nodo, che uccide tutti i Pod su un nodo, li spawna su un altro nodo, e rende il nodo non schedulabile:
-```
+```bash
 kubectl drain node01
 ```
-```
+```bash
 kubectl drain node01 --ignore-daemonsets
 ```
 2. Eseguiamo reboot del nodo
 3. Rendiamo il nodo nuovamente schedulabile:
-```
+```bash
 kubectl uncordon node01
 ```
 
 Note
 ----
 Per rendere un nodo NON schedulabile, ma senza uccidere i pod su di esso, esiste il comando:
-```
+```bash
 kubectl cordon node01
 ```
